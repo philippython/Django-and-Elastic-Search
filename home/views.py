@@ -20,9 +20,11 @@ from django_elasticsearch_dsl_drf.filter_backends import (
 )
 
 def generate_random_data():
-    url = 'https://newsapi.org/v2/everything?q=apple&from=2021-04-23&to=2021-04-23&sortBy=popularity&apiKey=827705eea42e455cba8bf4afafc7da90'
+    url = 'https://newsapi.org/v2/everything?q=apple&from=2022-09-15&to=2021-04-23&sortBy=popularity&apiKey=827705eea42e455cba8bf4afafc7da90'
     r = requests.get(url)
     payload = json.loads(r.text)
+    print(payload)
+    print(payload.get('articles'))
     count = 1
     for data in payload.get('articles'):
         print(count)
